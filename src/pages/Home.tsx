@@ -14,7 +14,7 @@ export default function Home() {
     <div className="page">
       <header className="hero">
         <h1>The Coach's Office</h1>
-        <p>Home Page</p>
+        <p>Field notes from another dimension</p>
       </header>
       <nav className="grid">
         {SECTIONS.map((s) => (
