@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { EXTERNAL_LINKS } from '../links'
+import { exportBackup, importBackup } from '../backup'
+import Notice from '../components/Notice'
 
 const SECTIONS = [
   { to: '/articles', title: 'Articles', desc: 'Upload and read PDF articles', icon: '📄' },
@@ -10,6 +13,38 @@ const SECTIONS = [
 ]
 
 export default function Home() {
+  const [msg, setMsg] = useState<string | null>(null)
+  const [ok, setOk] = useState<string | null>(null)
+
+  const backup = async () => {
+    try {
+      const url = URL.createObjectURL(await exportBackup())
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `coachs-office-backup-${new Date().toISOString().slice(0, 10)}.json`
+      a.click()
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
+      setMsg(null)
+      setOk('Backup downloaded.')
+    } catch {
+      setOk(null)
+      setMsg('Could not create the backup.')
+    }
+  }
+
+  const restore = async (f: File | undefined) => {
+    if (!f) return
+    try {
+      const n = await importBackup(f)
+      setMsg(null)
+      setOk(`Restored ${n} items. Reloading...`)
+      setTimeout(() => window.location.reload(), 800)
+    } catch (e) {
+      setOk(null)
+      setMsg(e instanceof Error ? e.message : 'Could not restore the backup.')
+    }
+  }
+
   return (
     <div className="page">
       <header className="hero">
@@ -32,6 +67,20 @@ export default function Home() {
           </a>
         ))}
       </nav>
+      <section>
+        <h2>Backup &amp; Restore</h2>
+        <p className="muted">Your work is saved only in this browser. Download a backup regularly, and restore it here or on another browser/device.</p>
+        <div className="actions">
+          <button onClick={backup}>Download backup</button>
+          <label className="button">
+            Restore from backup
+            <input type="file" accept="application/json,.json" hidden
+              onChange={(e) => { restore(e.target.files?.[0]); e.target.value = '' }} />
+          </label>
+        </div>
+        <Notice message={msg} />
+        <Notice message={ok} kind="ok" />
+      </section>
     </div>
   )
 }
