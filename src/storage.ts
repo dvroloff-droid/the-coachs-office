@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
-const DB_NAME = 'coachs-office'
-const STORE = 'kv'
+export const DB_NAME = 'coachs-office'
+export const STORE = 'kv'
 
 function openDb(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
