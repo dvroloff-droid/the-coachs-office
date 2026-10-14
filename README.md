@@ -27,3 +27,9 @@ npm run preview
 - Browse coaching lessons and manage a local cart.
 
 Articles, tips, cart contents, and spreadsheets are stored in the current browser; they are not synced to a server.
+
+## Follow-up ideas
+
+- Replace placeholder community links with the team's official destinations.
+- Add secure account-based sync if people need to use their resources across devices.
+- Connect lesson requests to a real booking and payment workflow.
