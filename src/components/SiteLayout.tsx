@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const NAV_LINKS = [
   { to: '/articles', label: 'Articles' },
   { to: '/tips', label: 'Tips & clips' },
   { to: '/gffl', label: 'Fantasy tools' },
+  { to: '/football', label: 'Football' },
   { to: '/store', label: 'Lessons' },
 ]
 
@@ -20,7 +21,9 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
           </Link>
           <nav className="site-nav" aria-label="Main navigation">
             {NAV_LINKS.map((link) => (
-              <Link key={link.to} to={link.to}>{link.label}</Link>
+              <NavLink key={link.to} to={link.to} className={({ isActive }) => isActive ? 'is-active' : undefined}>
+                {link.label}
+              </NavLink>
             ))}
           </nav>
         </div>
