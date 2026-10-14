@@ -51,9 +51,9 @@ export default function Articles() {
 
   return (
     <PageShell title="Articles">
-      <label className="button">
+      <label className="button file-upload">
         Upload PDF
-        <input type="file" accept="application/pdf,.pdf" multiple hidden
+        <input className="file-input" type="file" accept="application/pdf,.pdf" multiple
           onChange={(e) => { onFiles(e.target.files); e.target.value = '' }} />
       </label>
       <Notice message={msg} />

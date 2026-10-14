@@ -6,6 +6,7 @@ const Articles = lazy(() => import('./pages/Articles'))
 const Tips = lazy(() => import('./pages/Tips'))
 const SpreadsheetPage = lazy(() => import('./pages/SpreadsheetPage'))
 const Store = lazy(() => import('./pages/Store'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
   return (
@@ -17,7 +18,7 @@ export default function App() {
         <Route path="/gffl" element={<SpreadsheetPage storageKey="gffl" title="The GFFL" />} />
         <Route path="/football" element={<SpreadsheetPage storageKey="football" title="Football not Futbol" />} />
         <Route path="/store" element={<Store />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   )
