@@ -43,23 +43,25 @@ export default function Home() {
         </section>
 
         <section className="resource-section" aria-labelledby="resources-title">
+          <nav className="resource-links" aria-label="Resources">
+            {SECTIONS.map((section) => (
+              <Link key={section.to} to={section.to} className="resource-link">
+                <span className="resource-number">{section.icon}</span>
+                <span className="resource-link-text">
+                  <span className="resource-type">{section.type}</span>
+                  <strong>{section.title}</strong>
+                  <span className="resource-desc">{section.desc}</span>
+                </span>
+                <span className="resource-arrow" aria-hidden="true">↗</span>
+              </Link>
+            ))}
+          </nav>
           <div className="section-heading">
             <div>
               <p className="eyebrow">Your tools, all in one place</p>
               <h2 id="resources-title">The office is open.</h2>
             </div>
             <p>Practical resources for the work before, during, and after game day.</p>
-          </div>
-          <div className="grid resource-grid">
-            {SECTIONS.map((section) => (
-              <Link key={section.to} to={section.to} className="card resource-card">
-                <span className="resource-number">{section.icon}</span>
-                <span className="resource-type">{section.type}</span>
-                <h3>{section.title}</h3>
-                <p>{section.desc}</p>
-                <span className="resource-arrow" aria-hidden="true">↗</span>
-              </Link>
-            ))}
           </div>
         </section>
 

@@ -238,3 +238,15 @@ input:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 3p
 .card.static p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
 .card.static button { margin-top: auto; }
 .page p.muted { padding: 1.5rem; border: 1px dashed #bdc9c0; border-radius: 9px; background: #fff; text-align: center; }
+
+.resource-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: start; }
+.resource-section .section-heading { display: block; margin: 0; padding-top: .5rem; }
+.resource-section .section-heading > p { max-width: 380px; margin: 1rem 0 0; }
+.resource-links { display: flex; flex-direction: column; gap: .6rem; }
+.resource-link { display: grid; grid-template-columns: 2.4rem 1fr 1rem; align-items: center; gap: 1rem; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); color: var(--ink); text-decoration: none; transition: border-color .16s ease, background .16s ease; }
+.resource-link:hover { border-color: #91ae9b; background: #f2f6f0; }
+.resource-link-text { display: flex; flex-direction: column; gap: .15rem; }
+.resource-link strong { font-size: 1.05rem; letter-spacing: -.02em; }
+.resource-desc { color: var(--muted); font-size: .88rem; line-height: 1.45; }
+.resource-link .resource-arrow { position: static; }
+@media (max-width: 760px) { .resource-section { grid-template-columns: 1fr; gap: 1.5rem; } .resource-section .section-heading { order: -1; } }
