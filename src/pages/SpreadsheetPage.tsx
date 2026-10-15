@@ -37,7 +37,7 @@ export default function SpreadsheetPage({ storageKey, title }: { storageKey: str
   const onFile = async (file: File | undefined) => {
     if (!file) return
     setOk(null)
-    if (!/\.xlsx?$/i.test(file.name)) return setMsg('Please choose an Excel file (.xlsx).')
+    if (!/\.xlsx?$/i.test(file.name)) return setMsg('Please choose an Excel file (.xlsx or .xls).')
     try {
       const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' })
       const sheets: Sheet[] = wb.SheetNames.map((name) => ({
@@ -91,9 +91,9 @@ export default function SpreadsheetPage({ storageKey, title }: { storageKey: str
   return (
     <PageShell title={title}>
       <div className="actions">
-        <label className="button">
+        <label className="button file-upload">
           Upload Excel
-          <input type="file" accept=".xlsx,.xls" hidden onChange={(e) => { onFile(e.target.files?.[0]); e.target.value = '' }} />
+          <input className="file-input" type="file" accept=".xlsx,.xls" onChange={(e) => { onFile(e.target.files?.[0]); e.target.value = '' }} />
         </label>
         {current && (
           <>
