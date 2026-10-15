@@ -96,6 +96,19 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -.035em; }
   text-decoration: none;
 }
 .button:hover { border-color: #963a1e; background: #963a1e; color: white; }
+.file-upload { position: relative; }
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.file-upload:focus-within { outline: 3px solid #bd722e; outline-offset: 3px; }
 .text-link { color: var(--green); font-size: .92rem; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .hero-art { position: relative; display: grid; min-height: 300px; place-items: center; }
 .playbook-card { width: min(100%, 310px); padding: 1.2rem; transform: rotate(3deg); border: 1px solid #345746; border-radius: 10px; background: var(--green); box-shadow: 16px 19px 0 #dce6dc; color: #f8f7ef; }

@@ -67,7 +67,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">More from the sidelines</p>
             <h2 id="community-title">Your game, your community.</h2>
-            <p>Jump into the fantasy leagues and team communities you already follow.</p>
+            <p>Visit ESPN Fantasy or GameChanger to find the leagues and teams you follow.</p>
           </div>
           <div className="community-links">
             {EXTERNAL_LINKS.map((link) => (
