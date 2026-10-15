@@ -28,7 +28,7 @@ export default function Store() {
   const total = lines.reduce((s, l) => s + l.price * cart[l.id], 0)
 
   return (
-    <PageShell title="Web Store">
+    <PageShell title="Work with a coach" eyebrow="Lessons" intro="Choose a lesson, film session, or clinic and add it to your cart.">
       <h2>Coaching Lessons</h2>
       <div className="grid">
         {LESSONS.map((l) => (

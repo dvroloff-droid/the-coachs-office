@@ -27,3 +27,7 @@ npm run preview
 - Browse coaching lessons and manage a local cart.
 
 Articles, tips, cart contents, and spreadsheets are stored in the current browser; they are not synced to a server.
+
+## Publish with GitHub Pages
+
+Pushes to `main` build and deploy the site via `.github/workflows/pages.yml`. Enable it once under **Settings → Pages → Source: GitHub Actions**. The site will be at `https://<user>.github.io/the-coachs-office/`.

@@ -89,7 +89,7 @@ export default function SpreadsheetPage({ storageKey, title }: { storageKey: str
   }
 
   return (
-    <PageShell title={title}>
+    <PageShell title={title} eyebrow="Fantasy" intro="Upload, edit, and export your workbook right here in your browser.">
       <div className="actions">
         <label className="button file-upload">
           Upload Excel

@@ -50,7 +50,7 @@ export default function Articles() {
   }
 
   return (
-    <PageShell title="Articles">
+    <PageShell title="The reading room" eyebrow="Library" intro="Keep useful coaching articles and reference PDFs close at hand.">
       <label className="button file-upload">
         Upload PDF
         <input className="file-input" type="file" accept="application/pdf,.pdf" multiple
