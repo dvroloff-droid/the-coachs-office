@@ -65,7 +65,7 @@ export default function Tips() {
   }
 
   return (
-    <PageShell title="Coaching Tips and Clips">
+    <PageShell title="Tips & film room" eyebrow="Practice" intro="Collect the small reminders and video clips that change a game.">
       <form className="form" onSubmit={submit}>
         <div className="tabs">
           <button type="button" className={kind === 'video' ? 'active' : ''} onClick={() => setKind('video')}>Video clip</button>
